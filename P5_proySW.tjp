@@ -201,8 +201,13 @@ task WMGame "Web & Mobile Game" {
       allocate boss
       allocate dev2
       actual:effort 20d
+      #cambiamos fecha
+      actual:start 2026-05-15
       depends WMGame.twebF
       depends WMGame.tback
+      #añadimos las dependencias de antes
+      depends WMGame.tmobF
+      depends WMGame.tcloud
       }
 
     
