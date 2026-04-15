@@ -1,4 +1,6 @@
 /*
+ * Nombre : Adriana Sainz Sampedro
+ *
  * This file contains the practice 5 source code corresponding with the 
  * project planification using TaskJuggler in the "Proyecto Software" course.
  * It is based on the Tutorial project offered by TaskJuggler and maintains 
@@ -147,6 +149,53 @@ task WMGame "Web & Mobile Game" {
     }    
   }
 
+  task tmobF "Mobile Front End" {
+    purge chargeset
+    chargeset mFront
+    responsible dev3
+    depends WMGame.tback.tBEd, WMGame.twebF.tGUId
+    task tMGUId "Mobile GUI Design" {
+      effort 9d
+      allocate dev3, dev4
+    }
+    task tMFEc "Mobile Front End Construction" {
+      effort 18d
+      allocate dev3, dev4
+      depends WMGame.tmobF.tMGUId
+    }
+    task tMFEt "Mobile Front End Test" {
+      effort 9d
+      allocate dev1, dev4
+      depends WMGame.tmobF.tMFEc
+    }
+  }
+
+  task tcloud "Cloud Deployment" {
+    purge chargeset
+    chargeset cloud
+    responsible dev1
+    # Backend completo
+    depends WMGame.tback.tbackDev
+    task tcloudEval "Cloud Provider Evaluation" {
+      effort 3d
+      allocate boss, dev1
+      journalentry 2026-04-15 "Cloud evaluation in progress" {
+        author dev1
+        alert yellow
+        summary "Evaluating AWS, Azure and GCP for the backend deployment. Cost and latency are the main criteria."
+      }
+    }
+    task tcloudSetup "Cloud Infrastructure Setup" {
+      effort 5d
+      allocate dev1, dev4
+      depends WMGame.tcloud.tcloudEval
+    }
+    task tcloudDeploy "Backend Cloud Deployment" {
+      effort 4d
+      allocate dev1, dev4
+      depends WMGame.tcloud.tcloudSetup
+    }
+  }
   task ttest "Acceptance tests" {
       effort 10d
       allocate boss
