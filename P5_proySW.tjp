@@ -182,13 +182,15 @@ task WMGame "Web & Mobile Game" {
     responsible dev1
     # Backend completo
     depends WMGame.tback.tbackDev
+    depends WMGame.twebF.tFEt
+    depends WMGame.tmobF.tMFEt
     task tcloudEval "Cloud Provider Evaluation" {
       effort 3d
       allocate boss, dev1
-      journalentry 2026-04-15 "Cloud evaluation in progress" {
+      journalentry 2026-04-16 "Cloud evaluation in progress" {
         author dev1
         alert yellow
-        summary "Evaluating AWS, Azure and GCP for the backend deployment. Cost and latency are the main criteria."
+        summary "Evaluating AWS."
       }
     }
     task tcloudSetup "Cloud Infrastructure Setup" {
