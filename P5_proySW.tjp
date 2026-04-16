@@ -162,7 +162,7 @@ task WMGame "Web & Mobile Game" {
     responsible dev3
     depends WMGame.tback.tBEd, WMGame.twebF.tGUId
     task tMGUId "Mobile GUI Design" {
-      effort 9d
+      effort 10d
       allocate dev4
     }
     task tMFEc "Mobile Front End Construction" {
