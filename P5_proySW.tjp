@@ -107,8 +107,8 @@ task WMGame "Web & Mobile Game" {
     responsible dev1
     depends WMGame.tgdesign
     task tBEd "Back End General Design" {
-      # The effort to finish this task is 5 man-days.
-      effort 5d
+      # The effort to finish this task is 10 man-days.
+      effort 10d
       allocate dev1
     }
     task tlogic "Game logic" {
@@ -123,7 +123,7 @@ task WMGame "Web & Mobile Game" {
       }
     }
     task tbackDev "Back development" {
-      effort 20d
+      effort 25d
       allocate dev1, dev2
       depends WMGame.tback.tlogic
     }
@@ -145,7 +145,7 @@ task WMGame "Web & Mobile Game" {
       }
     }
     task tFEc "Web Front End Construction" {
-      effort 15d
+      effort 25d
       allocate dev2, dev3
       depends WMGame.twebF.tGUId
     }
@@ -200,7 +200,7 @@ task WMGame "Web & Mobile Game" {
       depends WMGame.tcloud.tcloudEval
     }
     task tcloudDeploy "Backend Cloud Deployment" {
-      effort 5d
+      effort 7d
       allocate dev1, dev4
       depends WMGame.tcloud.tcloudSetup
     }
