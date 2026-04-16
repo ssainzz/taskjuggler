@@ -200,7 +200,7 @@ task WMGame "Web & Mobile Game" {
       depends WMGame.tcloud.tcloudEval
     }
     task tcloudDeploy "Backend Cloud Deployment" {
-      effort 11d
+      effort 12d
       allocate dev1, dev4
       depends WMGame.tcloud.tcloudSetup
     }
