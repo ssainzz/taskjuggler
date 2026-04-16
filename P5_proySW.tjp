@@ -189,7 +189,7 @@ task WMGame "Web & Mobile Game" {
       effort 6d
       allocate boss, dev1
       journalentry 2026-04-16 "Cloud evaluation in progress" {
-        author dev1,dev4
+        author dev1, dev4
         alert green
         summary "Evaluating AWS."
       }
