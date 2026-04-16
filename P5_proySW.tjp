@@ -21,7 +21,7 @@ project pSix "Web Game"  2025-12-15 +5m {
   # the project reports. If not specified, the current day will be
   # used, but this will likely be outside of the project range, so it
   # can't be seen in the reports.
-  now 2026-02-25-13:00
+  now 2026-04-16-13:00
   # The currency for all money values is the US Dollar.
   currency "EUR"
 
@@ -131,7 +131,7 @@ task WMGame "Web & Mobile Game" {
       effort 9d
       actual:effort 15d
       allocate dev3
-      journalentry 2026-01-15 "Problems with the GUI design tool" {
+      journalentry 2026-01-16 "Problems with the GUI design tool" {
         author dev3
         alert yellow
         summary "The tool used for the GUI design has given me a lot of problems. I recommend to look for other one."
@@ -156,16 +156,16 @@ task WMGame "Web & Mobile Game" {
     depends WMGame.tback.tBEd, WMGame.twebF.tGUId
     task tMGUId "Mobile GUI Design" {
       effort 9d
-      allocate dev3, dev4
+      allocate dev3
     }
     task tMFEc "Mobile Front End Construction" {
       effort 18d
-      allocate dev3, dev4
+      allocate dev3
       depends WMGame.tmobF.tMGUId
     }
     task tMFEt "Mobile Front End Test" {
       effort 9d
-      allocate dev1, dev4
+      allocate dev1, dev3
       depends WMGame.tmobF.tMFEc
     }
   }
@@ -187,12 +187,12 @@ task WMGame "Web & Mobile Game" {
     }
     task tcloudSetup "Cloud Infrastructure Setup" {
       effort 5d
-      allocate dev1, dev4
+      allocate dev1, dev2
       depends WMGame.tcloud.tcloudEval
     }
     task tcloudDeploy "Backend Cloud Deployment" {
       effort 4d
-      allocate dev1, dev4
+      allocate dev1, dev2
       depends WMGame.tcloud.tcloudSetup
     }
   }
