@@ -72,6 +72,11 @@ resource dev3 "Peter Green" {
   email "kkk@unizar.es"
 }
 
+resource dev4 "Adriana Sainz" {
+  email "911715@unizar.es"
+  efficiency 0.5
+}
+
 # Now we specify the work packages. The whole project is described as
 # a task that contains subtasks. These subtasks are then broken down
 # into smaller tasks and so on. The innermost tasks describe the real
@@ -157,16 +162,16 @@ task WMGame "Web & Mobile Game" {
     depends WMGame.tback.tBEd, WMGame.twebF.tGUId
     task tMGUId "Mobile GUI Design" {
       effort 9d
-      allocate dev3
+      allocate dev4
     }
     task tMFEc "Mobile Front End Construction" {
       effort 18d
-      allocate dev3
+      allocate dev4
       depends WMGame.tmobF.tMGUId
     }
     task tMFEt "Mobile Front End Test" {
       effort 9d
-      allocate dev1, dev3
+      allocate dev1, dev4
       depends WMGame.tmobF.tMFEc
     }
   }
@@ -193,7 +198,7 @@ task WMGame "Web & Mobile Game" {
     }
     task tcloudDeploy "Backend Cloud Deployment" {
       effort 4d
-      allocate dev1, dev2
+      allocate dev1, dev4
       depends WMGame.tcloud.tcloudSetup
     }
   }
@@ -278,6 +283,12 @@ textreport frame "" {
     formats html
     center '<[report id="overview"]>'
   }
+
+  textreport initialPlan "Initial Plan" {
+    formats html
+    title "Initial Project Plan"
+    center '<[report id="initialPlan"]>'
+  }
   
   textreport "Status" {
     formats html
@@ -325,6 +336,18 @@ taskreport overview "" {
   caption 'All effort values are in man days.'
 }
 
+taskreport initialPlan "" {
+  scenarios plan
+  headline "Initial Project Plan (Baseline)"
+  columns bsi { title 'WBS' },
+          name, start, end, effort, cost,
+          revenue, chart { ${TaskTip} }
+  timeformat "%a %Y-%m-%d"
+  loadunit days
+  hideresource @all
+  balance cost rev
+  caption 'Initial plan'
+}
 
 # Macro to set the background color of a cell according to the alert
 # level of the task.
