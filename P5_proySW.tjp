@@ -75,7 +75,7 @@ resource dev3 "Peter Green" {
 resource dev4 "Adriana Sainz" {
   email "911715@unizar.es"
   limits {dailymax 4h}
-  workinghours 9:00 - 13:00
+  workinghours mon - fri 09:00 - 13:00
 }
 
 # Now we specify the work packages. The whole project is described as
