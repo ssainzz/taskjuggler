@@ -74,7 +74,7 @@ resource dev3 "Peter Green" {
 
 resource dev4 "Adriana Sainz" {
   email "911715@unizar.es"
-  limits {daylimax 4h}
+  limits {dailymax 4h}
   workinghours 9:00 - 13:00
 }
 
