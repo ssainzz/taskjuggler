@@ -185,7 +185,7 @@ task WMGame "Web & Mobile Game" {
     depends WMGame.twebF.tFEt
     depends WMGame.tmobF.tMFEt
     task tcloudEval "Cloud Provider Evaluation" {
-      effort 3d
+      effort 6d
       allocate boss, dev1
       journalentry 2026-04-16 "Cloud evaluation in progress" {
         author dev1
@@ -199,7 +199,7 @@ task WMGame "Web & Mobile Game" {
       depends WMGame.tcloud.tcloudEval
     }
     task tcloudDeploy "Backend Cloud Deployment" {
-      effort 4d
+      effort 5d
       allocate dev1, dev4
       depends WMGame.tcloud.tcloudSetup
     }
